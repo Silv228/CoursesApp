@@ -1,0 +1,8 @@
+.star{
+    stroke: var(--black);
+    stroke-width: 1px;
+    margin-right: 5px;
+}
+.filled{
+    fill: var(--primary);
+}

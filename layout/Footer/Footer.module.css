@@ -1,0 +1,29 @@
+.footer {
+    padding: 25px 32px;
+    background: var(--primary);
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px 40px;
+    color: var(--white);
+    font-family: 'Noto Sans';
+}
+
+.copyright {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: var(--white);
+}
+.footer a:hover {
+    color: var(--gray-light);
+}
+
+@media (max-width: 765px) {
+    .footer {
+        grid-template-columns: 1fr;
+    }
+}

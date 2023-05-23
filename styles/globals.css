@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--back-col);
+  font-family:'Noto Sans', Times, serif;
+}
+a{
+  text-decoration: none;
+  color: var(--black);  
+}
+:root{
+  --primary: #7653FC;
+  --primary-hover: #5832ee;
+  --black: #3B434E;
+  --white: white;
+  --green-light: #C8F8E4;
+  --green: #1DC47E;
+  --red: #FC836D;
+  --back-col: #ececec;
+  --gray-light: #EBEBEB;
+  --gray-dark: #787D85;
+}

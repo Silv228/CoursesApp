@@ -1,11 +1,7 @@
 import { AppContext } from "@/context/AppContext";
-import { MenuItem, MenuItemSidebar, PageItem } from "@/interfaces/menu.interface";
+import { PageItem } from "@/interfaces/menu.interface";
 import React, { useContext } from "react";
-import CourseIcon from "./icons/courses.svg"
-import ServicesIcon from "./icons/services.svg"
-import BooksIcon from "./icons/books.svg"
-import ProductsIcon from "./icons/products.svg"
-import { TopLevelCategory } from "@/interfaces/page.interface";
+import { firstLevelMenu } from "@/helpers/helpers";
 import cn from "classnames"
 import style from "./Menu.module.css"
 import Link from "next/link";
@@ -24,12 +20,7 @@ export const Menu = (): JSX.Element => {
         }))
     }
 
-    const firstLevelMenu: MenuItemSidebar[] = [
-        { name: 'Курсы', route: 'courses', icon: <CourseIcon />, id: TopLevelCategory.Courses },
-        { name: 'Сервисы', route: 'services', icon: <ServicesIcon />, id: TopLevelCategory.Services },
-        { name: 'Книги', route: 'books', icon: <BooksIcon />, id: TopLevelCategory.Books },
-        { name: 'Товары', route: 'products', icon: <ProductsIcon />, id: TopLevelCategory.Products },
-    ]
+    
     const BuildFirstLevel = (): JSX.Element => {
         return (
             <>
@@ -52,7 +43,7 @@ export const Menu = (): JSX.Element => {
     const BuildSecondLevel = (route: string): JSX.Element => {
         return (
             <div>
-                {menu.map(m => {
+                {menu && menu.map(m => {
                     if (m.pages.map(p => p.alias).includes(router.query.alias as string)) {
                         m.isOpened = true
                     }

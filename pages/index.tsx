@@ -7,25 +7,14 @@ import { withLayout } from "@/layout/Layout"
 import { GetStaticProps } from "next"
 import axios from "axios"
 import { MenuItem } from "@/interfaces/menu.interface"
+import Htag from "@/components/Htag/Htag"
 
-function Home({ menu }: HomeProps): JSX.Element {
+function Home({ menu,  }: HomeProps): JSX.Element {
   const [count, setCount] = useState<number>(0)
   const [rating, setRating] = useState<number>(3)
   return (
     <>
-      <Button appearance='primary' arrow="right" onClick={() => setCount(count + 1)}>Hello</Button>
-      <Button appearance='ghost' arrow="down">Hello</Button>
-      <P size="s">hello</P>
-      <P size="m">hello</P>
-      <P>{count}</P>
-      <P size="l">hello</P>
-      <Tag size="s">Ghost</Tag>
-      <Tag size="s" color='green'>green</Tag>
-      <Tag size="s" color='red'>red</Tag>
-      <Tag size="s" color='primary'>primary</Tag>
-      <Tag size="s" color='grey'>grey</Tag>
-      <Rating isEditable={true} rating={rating} setRating={setRating} />
-      <Rating isEditable={false} rating={2} />
+      <Htag tag={"h1"}>Курсы по {}</Htag>
     </>
   )
 }

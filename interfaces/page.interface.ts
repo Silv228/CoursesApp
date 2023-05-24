@@ -21,7 +21,7 @@ export interface PageModel {
     createdAt: string
     updatedAt: string
     __v: number
-    hh: Hh
+    hh: HhProps
     qas: any[]
     addresses: any[]
     categoryOn: string
@@ -36,7 +36,7 @@ export interface Advantage {
     _id: string
 }
 
-export interface Hh {
+export interface HhProps {
     count: number
     juniorSalary: number
     middleSalary: number

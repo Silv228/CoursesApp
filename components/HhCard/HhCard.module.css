@@ -1,0 +1,87 @@
+.hhBlock {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px 30px;
+    margin-top: 24px;
+}
+
+.vacancy {
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.salaryBlock {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.salary {
+    border-right: 1px solid var(--gray-light);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.salaryValue {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 35px;
+    text-align: center;
+    color: var(--black);
+    margin: 10px 0px;
+}
+
+.salaryBlock:last-child {
+    border: none;
+}
+
+.hhCardTitle {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    color: var(--black);
+}
+
+.vacancyCount {
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.rate svg {
+    margin-right: 10px;
+}
+
+.rate svg:last-child {
+    margin-right: 0;
+}
+
+.filled circle {
+    fill: var(--red);
+}
+
+@media (max-width: 965px) {
+    .hhBlock {
+        grid-template-columns: 1fr;
+    }
+    
+}
+@media (max-width: 490px) {
+    .hhBlock {
+        grid-template-columns: 1fr;
+    }
+    .salaryBlock {
+        grid-template-columns: 1fr;
+    }
+    .salary {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-light);
+    }
+    .salary:last-child{
+        border: none;
+    }
+}

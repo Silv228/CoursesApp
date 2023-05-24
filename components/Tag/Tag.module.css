@@ -1,7 +1,6 @@
 .tag {
     display: inline-block;
     border-radius: 20px;
-
     box-sizing: border-box;
 }
 
@@ -10,11 +9,14 @@
     font-size: 12px;
     line-height: 12px;
 }
-.large{
+
+.large {
     padding: 5px 10px;
+    height: 22px;
     font-size: 14px;
     line-height: 14px;
 }
+
 .ghost {
     border: 1px solid var(--gray-light);
     font-weight: 500;
@@ -32,12 +34,14 @@
     color: var(--white);
     background: #DE0000;
 }
-.grey{
+
+.grey {
     font-weight: 600;
     color: var(--white);
     background: #B3C0D9;
 }
-.primary{
+
+.primary {
     border: 1px solid var(--primary);
     font-weight: 500;
     color: var(--primary);

@@ -7,7 +7,6 @@ import Tag from "@/components/Tag/Tag";
 import HhCard from "@/components/HhCard/HhCard";
 import { TopLevelCategory } from "@/interfaces/page.interface";
 import AdvantList from "@/components/AdvantList/AdvantList";
-import P from "@/components/P/P";
 
 const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageComponentProps): JSX.Element => {
     return (

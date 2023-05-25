@@ -12,16 +12,16 @@ export interface PageModel {
     alias: string
     title: string
     category: string
-    seoText: string
+    seoText?: string
     tagsTitle: string
     metaTitle: string
     metaDescription: string
     firstCategory: TopLevelCategory
-    advantages: Advantage[]
+    advantages?: Advantage[]
     createdAt: string
     updatedAt: string
     __v: number
-    hh: HhProps
+    hh?: HhProps
     qas: any[]
     addresses: any[]
     categoryOn: string

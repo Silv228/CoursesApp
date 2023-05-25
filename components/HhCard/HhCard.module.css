@@ -3,6 +3,7 @@
     grid-template-columns: 1fr 3fr;
     gap: 10px 30px;
     margin-top: 24px;
+    margin-bottom: 47px;
 }
 
 .vacancy {
@@ -80,8 +81,12 @@
     .salary {
         border-right: none;
         border-bottom: 1px solid var(--gray-light);
+        margin-bottom: 0px;
     }
     .salary:last-child{
         border: none;
+    }
+    .rate{
+        margin-bottom: 10px;
     }
 }

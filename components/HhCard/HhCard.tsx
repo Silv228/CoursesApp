@@ -6,15 +6,15 @@ import cn from "classnames"
 import RateIcon from "./Rate.svg"
 
 const HhCard = ({ count, juniorSalary, middleSalary, seniorSalary, ...props }: HhCardProps): JSX.Element => {
-
+    const priceRu = (price: number): string => (price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
     const buildSalaryCard = (title: string, salary: number, rate: number): JSX.Element => {
         let rateArray = new Array(3).fill(<RateIcon />)
         return (
             <div className={style.salary}>
                 <div className={style.hhCardTitle}>{title}</div>
-                <div className={style.salaryValue}>{salary}</div>
+                <div className={style.salaryValue}>{priceRu(salary)} ₽</div>
                 <div className={style.rate}>
-                    {rateArray.map((r, i) => (i < rate) ? <RateIcon className={style.filled} /> : r)}
+                    {rateArray.map((r, i) => (i < rate) ? <RateIcon key={i} className={style.filled} /> : <RateIcon key={i}/>)}
                 </div>
             </div>
         )
@@ -25,7 +25,7 @@ const HhCard = ({ count, juniorSalary, middleSalary, seniorSalary, ...props }: H
             <Card>
                 <div className={style.vacancy}>
                     <div className={style.hhCardTitle}>Всего вакансий</div>
-                    <div className={style.vacancyCount}>{count}</div>
+                    <div className={style.vacancyCount}>{priceRu(count)}</div>
                 </div>
             </Card>
             <Card>

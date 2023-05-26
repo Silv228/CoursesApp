@@ -4,9 +4,9 @@ import style from './Button.module.css'
 import { Button } from "./Button.props";
 import ArrowIcon from './arrow.svg'
 
-const Button = ({ appearance, arrow = 'none', children, ...props }: Button): JSX.Element => {
+const Button = ({ appearance = 'primary', arrow = 'none', children, className, ...props }: Button): JSX.Element => {
     return (
-        <button className={cn(style.button, {
+        <button className={cn(style.button, className,  {
             [style.primary]: appearance === 'primary',
             [style.ghost]: appearance === 'ghost'
         })} {...props} >

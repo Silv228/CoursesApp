@@ -13,12 +13,12 @@ export const sortReducer = (state: SortReducerState, action: SortAction): SortRe
         case SortEnum.Rating:
             return ({
                 sort: SortEnum.Rating,
-                products: state.products.sort((a, b) => a.initialRating - b.initialRating)
+                products: state.products.sort((a, b) => b.initialRating - a.initialRating)
             })
         case SortEnum.Price:
             return ({
                 sort: SortEnum.Price,
-                products: state.products.sort((a, b) => b.price - a.price)
+                products: state.products.sort((a, b) => a.price - b.price)
             })
         default:
             throw new Error('Invalid sort type')

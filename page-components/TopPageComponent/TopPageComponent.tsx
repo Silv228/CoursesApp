@@ -24,6 +24,7 @@ const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageCo
                 <Tag color="grey" size="l">{products.length}</Tag>
                 <Sort sort={sort} setSort={setSort} />
             </div>
+            {sortProducts && <ul>{sortProducts.map(p => <li key={p._id}>{p.title + ' ' + p.price + ' ' + p.initialRating}</li>)}</ul>}
             {firstCategory === TopLevelCategory.Courses && <div className={style.categoryHeader}>
                 <Htag tag="h2">Вакансии - {page.category}</Htag>
                 <Tag size="l" color="red">hh.ru</Tag>

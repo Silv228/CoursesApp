@@ -26,4 +26,6 @@ a{
   --back-col: #ececec;
   --gray-light: #EBEBEB;
   --gray-dark: #787D85;
+  --gray: #A4A4A4;
+  --font-family: 'Noto Sans', Times, serif;
 }

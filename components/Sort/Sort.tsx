@@ -8,14 +8,14 @@ const Sort = ({ sort, setSort, className, ...props }: SortProps): JSX.Element =>
     return (
         <div className={cn(style.sort, className)} {...props}>
             <span onClick={() => setSort(SortEnum.Rating)} className={cn(style.sortItem, {
-                    [style.active]: SortEnum.Rating === sort
-                })}>
+                [style.active]: SortEnum.Rating === sort
+            })}>
                 <SortIcon className={style.sortIcon}
                 /> По рейтингу
             </span>
             <span onClick={() => setSort(SortEnum.Price)} className={cn(style.sortItem, {
-                    [style.active]: SortEnum.Price === sort
-                })}>
+                [style.active]: SortEnum.Price === sort
+            })}>
                 <SortIcon className={style.sortIcon} /> По цене
             </span>
         </div>

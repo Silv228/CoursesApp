@@ -8,6 +8,8 @@ import { GetStaticProps } from "next"
 import axios from "axios"
 import { MenuItem } from "@/interfaces/menu.interface"
 import Htag from "@/components/Htag/Htag"
+import Input from "@/components/Input/Input"
+import Textarea from "@/components/Textarea/Textarea"
 
 function Home({ menu,  }: HomeProps): JSX.Element {
   const [count, setCount] = useState<number>(0)
@@ -15,6 +17,8 @@ function Home({ menu,  }: HomeProps): JSX.Element {
   return (
     <>
       <Htag tag={"h1"}>Курсы по {}</Htag>
+      <Input placeholder="test"/>
+      <Textarea placeholder="test area"/>
     </>
   )
 }

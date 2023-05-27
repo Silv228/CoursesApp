@@ -4,7 +4,7 @@ import RatingStar from "./starRating.svg"
 import style from "./Rating.module.css"
 import cn from "classnames"
 
-const Rating = ({ isEditable, setRating, rating, ...props }: RatingProps) => {
+const Rating = ({ isEditable=false, setRating, rating, className, ...props }: RatingProps) => {
     const [currentRating, setCurrentRating] = useState<number>(rating)
     useEffect(() => {
         setCurrentRating(rating)
@@ -38,7 +38,7 @@ const Rating = ({ isEditable, setRating, rating, ...props }: RatingProps) => {
         })
 
     return (
-        <div onMouseLeave={() => setCurrentRating(rating)}>
+        <div className={cn(className)} onMouseLeave={() => setCurrentRating(rating)}>
             {constructRating()}
         </div>
     )

@@ -4,9 +4,11 @@ import style from './HhCard.module.css'
 import Card from "../Card/Card";
 import cn from "classnames"
 import RateIcon from "./Rate.svg"
+import { priceRu } from "@/helpers/helpers";
+
 
 const HhCard = ({ count, juniorSalary, middleSalary, seniorSalary, ...props }: HhCardProps): JSX.Element => {
-    const priceRu = (price: number): string => (price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
+    
     const buildSalaryCard = (title: string, salary: number, rate: number): JSX.Element => {
         let rateArray = new Array(3).fill(<RateIcon />)
         return (

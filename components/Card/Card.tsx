@@ -3,11 +3,11 @@ import { CardProps } from "./Card.props";
 import style from './Card.module.css'
 import cn from "classnames"
 
-const Card = ({ color = 'white', children, ...props }: CardProps): JSX.Element => {
+const Card = ({ color = 'white', children, className, ...props }: CardProps): JSX.Element => {
     return (
-        <div {...props} className={cn(style.card, {
+        <div className={cn(className, style.card, {
             [style.blueCard]: color === 'blue'
-        })}>
+        })} {...props} >
             {children}
         </div>
     )

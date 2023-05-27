@@ -1,0 +1,189 @@
+.product {
+    display: grid;
+    grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratingstart] auto [end];
+    padding: 30px;
+    margin-bottom: 10px;
+}
+
+.logo {
+    grid-column: start / logoend;
+    grid-row: span 2 / start;
+
+    border-radius: 5px;
+}
+
+.title {
+    grid-column: titlestart / middle;
+
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: var(--black);
+}
+
+.titleTags {
+    grid-column: titlestart / middle;
+}
+
+.titleTags>div {
+    margin-right: 5px;
+}
+
+.price {
+    grid-column: middle / priceend;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px;
+    color: var(--black);
+    align-self: flex-start;
+    align-content: baseline;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.price>span {
+    margin-top: -2px;
+}
+
+.priceTag {
+    padding: 5px 8px;
+}
+
+.priceLabel {
+    grid-column: middle / priceend;
+
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.credit {
+    grid-column: creditstart / creditend;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: var(--black);
+}
+
+.credit>span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.creditLabel {
+    grid-column: creditstart / creditend;
+
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.rating {
+    grid-column: ratingstart / end;
+}
+
+.ratingCount {
+    grid-column: ratingstart / end;
+
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.hr {
+    grid-column: start / end;
+
+    margin-top: 18px;
+    margin-bottom: 22px;
+    background-color: var(--gray-light);
+
+    border: none;
+    height: 1px;
+
+}
+
+.description {
+    grid-column: start / end;
+
+    margin-bottom: 14px;
+}
+
+.features {
+    grid-column: start / middle;
+
+    margin-bottom: 14px;
+}
+
+.characteristic {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 15px;
+    align-items: baseline;
+    margin-right: 60px;
+    color: var(--black);
+}
+
+.ChName {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.ChValue {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.tag {
+    margin-right: 7px;
+    margin-top: 5px;
+}
+
+.divider {
+    border-bottom: 1px dashed #C4C4C4;
+}
+
+.advBlock {
+    grid-column: middle / end;
+}
+
+.advTitle {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 5px;
+    color: var(--black);
+}
+
+.advText {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--black);
+}
+
+.advantages {
+    border-left: 3px solid var(--green);
+    border-radius: 2px;
+    padding-left: 15px;
+}
+
+.disadvantages {
+    border-left: 3px solid var(--red);
+    border-radius: 2px;
+    padding-left: 15px;
+}
+
+.buttons {
+    grid-column: start / middle;
+}
+
+.buttons button {
+    padding: 11px;
+    margin-right: 20px;
+}

@@ -11,3 +11,9 @@ export const firstLevelMenu: MenuItemSidebar[] = [
     { name: 'Книги', route: 'books', icon: <BooksIcon />, id: TopLevelCategory.Books },
     { name: 'Товары', route: 'products', icon: <ProductsIcon />, id: TopLevelCategory.Products },
 ]
+export const priceRu = (price: number): string => (price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
+
+export const declination = (count: number): string => {
+    const endWordArray = ["вов", "в", "ва", "ва", "ва", "вов", "вов", "вов", "вов", "вов"]
+    return `отзы${endWordArray[count % 10]}`
+}

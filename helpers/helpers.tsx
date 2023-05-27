@@ -14,6 +14,6 @@ export const firstLevelMenu: MenuItemSidebar[] = [
 export const priceRu = (price: number): string => (price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '))
 
 export const declination = (count: number): string => {
-    const endWordArray = ["вов", "в", "ва", "ва", "ва", "вов", "вов", "вов", "вов", "вов"]
-    return `отзы${endWordArray[count % 10]}`
+    const endWordArray = ["вов", "в", "ва", "ва", "ва", "вов"]
+    return `отзы${endWordArray[(count % 10) <= 5 ? (count % 10) : 5 ] }`
 }

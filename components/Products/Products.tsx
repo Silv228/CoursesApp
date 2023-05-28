@@ -29,7 +29,7 @@ const Products = ({ products, className, ...props }: ProductsProps): JSX.Element
                     </div>
                     <div className={style.credit}>{priceRu(product.credit)} ₽<span>/мес</span></div>
                     <Rating rating={product.reviewAvg ? product.reviewAvg : 0} className={style.rating} />
-                    <div className={style.titleTags}>{product.categories.map(c => <Tag key={c} color="ghost">{c}</Tag>)}</div>
+                    <div className={style.titleTags}>{product.categories.map(c => <Tag className={style.titleTag} key={c} color="ghost">{c}</Tag>)}</div>
                     <div className={style.priceLabel}>цена</div>
                     <div className={style.creditLabel}>в кредит</div>
                     <div className={style.ratingCount}>{product.reviewCount} {declination(product.reviewCount)}</div>
@@ -57,7 +57,7 @@ const Products = ({ products, className, ...props }: ProductsProps): JSX.Element
                                 <div className={style.advText}>{product.disadvantages}</div>
                             </div>}
                     </div>
-                    <hr className={style.hr} />
+                    <hr className={cn(style.hr, style.hr1)} />
                     <div className={style.buttons}>
                         <Button>Узнать подробнее</Button>
                         <Button appearance="ghost" arrow="right">Читать отзывы</Button>

@@ -59,3 +59,8 @@
     color: var(--black);
     margin-left: 20px;
 }
+@media screen  and (max-width: 600px) {
+    .titleBlock{
+        grid-template-columns: auto 1fr;
+    }
+}

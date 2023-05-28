@@ -7,7 +7,7 @@
 
 .logo {
     grid-column: start / logoend;
-    grid-row: span 2 / start;
+    grid-row: span 3 / start;
 
     border-radius: 5px;
 }
@@ -19,17 +19,19 @@
     font-size: 20px;
     line-height: 27px;
     color: var(--black);
-    align-self: flex-end;
+    align-self: flex-start;
     margin-right: 3px;
 }
 
 .titleTags {
     grid-column: titlestart / middle;
-    margin-top: 14px;
+
+    align-self: flex-start;
 }
 
-.titleTags>div {
+.titleTag {
     margin-right: 5px;
+    margin-top: 2px;
 }
 
 .price {
@@ -190,4 +192,297 @@
 .buttons button {
     padding: 11px;
     margin-right: 20px;
+}
+
+
+@media screen and (max-width: 1320px) {
+    .product {
+        grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
+        grid-template-areas:
+            "logo . title title title title title"
+            "logo . titleTags titleTags titleTags titleTags titleTags"
+            "price price price . credit . rating"
+            "priceLabel priceLabel priceLabel . creditLabel . ratingLabel"
+            "hr hr hr hr hr hr hr"
+            "description description description description description description description"
+            "features features features features features features features"
+            "advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
+            "hr2 hr2 hr2 hr2 hr2 hr2 hr2"
+            "buttons buttons buttons buttons buttons buttons buttons"
+
+        ;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+
+    .title {
+        grid-area: title;
+    }
+
+    .titleTags {
+        grid-area: titleTags;
+        align-self: center;
+        margin-bottom: 5px;
+    }
+
+    .titleTag {
+        margin-bottom: 5px;
+    }
+
+    .price {
+        grid-area: price;
+
+        margin-top: 10px;
+    }
+
+    .priceLabel {
+        grid-area: priceLabel;
+    }
+
+    .priceTag {
+        margin-left: 7px;
+    }
+
+    .credit {
+        grid-area: credit;
+    }
+
+    .creditLabel {
+        grid-area: creditLabel;
+    }
+
+    .rating {
+        grid-area: rating;
+    }
+
+    .ratingCount {
+        grid-area: ratingLabel;
+    }
+
+    .hr {
+        grid-area: hr;
+    }
+
+    .description {
+        grid-area: description;
+    }
+
+    .features {
+        grid-area: features;
+    }
+
+    .advBlock {
+        grid-area: advBlock;
+    }
+
+    .hr1 {
+        grid-area: hr2;
+    }
+
+    .buttons {
+        grid-area: buttons;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .product {
+        grid-template-columns: 70px 30px auto;
+        grid-template-areas:
+            "logo . title"
+            "logo . titleTags"
+            "priceLabel . price"
+            "creditLabel . credit"
+            "ratingLabel . rating"
+            "hr hr hr"
+            "description description description"
+            "features features features"
+            "advBlock advBlock advBlock"
+            "hr2 hr2 hr2"
+            "buttons buttons buttons"
+
+        ;
+    }
+
+    .logo {
+        grid-area: logo;
+    }
+
+    .title {
+        grid-area: title;
+    }
+
+    .titleTags {
+        grid-area: titleTags;
+        margin-bottom: 10px;
+    }
+
+    .price {
+        grid-area: price;
+
+        margin-top: 10px;
+        align-self: flex-end;
+
+        grid-template-columns: auto 1fr;
+        justify-items: start;
+    }
+
+    .priceLabel {
+        grid-area: priceLabel;
+
+        align-self: flex-end;
+    }
+
+    .priceTag {
+        margin-left: 7px;
+    }
+
+    .credit {
+        grid-area: credit;
+        margin-top: 7px;
+        align-self: flex-end;
+    }
+
+    .creditLabel {
+        grid-area: creditLabel;
+
+        align-self: flex-end;
+    }
+
+    .rating {
+        grid-area: rating;
+
+        margin-top: 7px;
+        align-self: flex-end;
+    }
+
+    .ratingCount {
+        grid-area: ratingLabel;
+
+        align-self: flex-end;
+    }
+
+    .hr {
+        grid-area: hr;
+    }
+
+    .description {
+        grid-area: description;
+    }
+
+    .features {
+        grid-area: features;
+    }
+    .characteristic {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0px 0px;
+        color: var(--black);
+    }
+    .characteristic .divider{
+        order: 1;
+        margin-top: 10px;
+    }
+    .advBlock {
+        grid-area: advBlock;
+    }
+
+    .hr1 {
+        grid-area: hr2;
+    }
+
+    .buttons {
+        grid-area: buttons;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .product {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "logo"
+            "title"
+            "titleTags"
+            "price"
+            "priceLabel"
+            "credit"
+            "creditLabel"
+            "rating"
+            "ratingLabel"
+            "hr"
+            "description"
+            "features"
+            "advBlock"
+            "hr2"
+            "buttons"
+
+        ;
+    }
+
+    .logo {
+        grid-area: logo;
+
+        margin-bottom: 10px;
+    }
+
+    .title {
+        grid-area: title;
+    }
+
+    .titleTags {
+        grid-area: titleTags;
+    }
+
+    .price {
+        grid-area: price;
+    }
+
+    .priceLabel {
+        grid-area: priceLabel;
+    }
+
+    .credit {
+        grid-area: credit;
+    }
+
+    .creditLabel {
+        grid-area: creditLabel;
+    }
+
+    .rating {
+        grid-area: rating;
+    }
+
+    .ratingCount {
+        grid-area: ratingLabel;
+    }
+
+    .hr {
+        grid-area: hr;
+    }
+
+    .description {
+        grid-area: description;
+    }
+
+    .features {
+        grid-area: features;
+    }
+
+    .advBlock {
+        grid-area: advBlock;
+    }
+
+    .hr1 {
+        grid-area: hr2;
+    }
+
+    .buttons {
+        grid-area: buttons;
+    }
+
+    .buttons>button:first-child {
+        margin-bottom: 5px;
+    }
 }

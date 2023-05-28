@@ -25,7 +25,7 @@ const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageCo
                 <Tag color="grey" size="l">{products.length}</Tag>
                 <Sort sort={sort} setSort={setSort} />
             </div>
-            {sortProducts && <Products className={style.products} products={products}/>}
+            {sortProducts && <Products className={style.products} products={sortProducts}/>}
             {firstCategory === TopLevelCategory.Courses && <div className={style.categoryHeader}>
                 <Htag tag="h2">Вакансии - {page.category}</Htag>
                 <Tag size="l" color="red">hh.ru</Tag>

@@ -7,6 +7,9 @@ const nextConfig = {
 module.exports = nextConfig
 
 module.exports = {
+	images:{
+		domains: ['courses-top.ru']
+	},
 	webpack(config, options) {
 		config.module.rules.push({
 			loader: '@svgr/webpack',

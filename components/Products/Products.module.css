@@ -19,10 +19,13 @@
     font-size: 20px;
     line-height: 27px;
     color: var(--black);
+    align-self: flex-end;
+    margin-right: 3px;
 }
 
 .titleTags {
     grid-column: titlestart / middle;
+    margin-top: 14px;
 }
 
 .titleTags>div {
@@ -31,20 +34,15 @@
 
 .price {
     grid-column: middle / priceend;
-
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 5px;
+    grid-template-columns: auto auto;
+    align-items: center;
     color: var(--black);
-    align-self: flex-start;
-    align-content: baseline;
     font-weight: 400;
     font-size: 20px;
     line-height: 27px;
-}
-
-.price>span {
-    margin-top: -2px;
+    white-space: nowrap;
+    align-self: flex-end;
 }
 
 .priceTag {
@@ -66,6 +64,9 @@
     font-size: 20px;
     line-height: 27px;
     color: var(--black);
+    align-self: flex-end;
+    justify-self: flex-start;
+    white-space: nowrap;
 }
 
 .credit>span {
@@ -84,6 +85,9 @@
 
 .rating {
     grid-column: ratingstart / end;
+
+    white-space: nowrap;
+    align-self: flex-end;
 }
 
 .ratingCount {

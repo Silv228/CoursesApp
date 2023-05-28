@@ -8,20 +8,27 @@ import Button from "../Button/Button";
 import Tag from "../Tag/Tag";
 import { declination, priceRu } from "@/helpers/helpers";
 import P from "../P/P";
+import Image from "next/image";
 
 const Products = ({ products, className, ...props }: ProductsProps): JSX.Element => {
     return (
         <div className={cn(className)}>
             {products.map(product =>
                 <Card key={product._id} className={cn(style.product)}>
-                    <img className={style.logo} alt={product.characteristics[0].value} src={process.env.NEXT_PUBLIC_DOMAIN + product.image} />
+                    <Image
+                        className={style.logo}
+                        alt={product.characteristics[0].value}
+                        src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
+                        width={70}
+                        height={70}
+                    />
                     <div className={style.title}>{product.title}</div>
                     <div className={style.price}>
-                        <div>{priceRu(product.price)} ₽</div>
-                        <span><Tag color="green" className={style.priceTag}>{priceRu(product.price - product.oldPrice)} ₽</Tag></span>
+                        {priceRu(product.price)} ₽
+                        <Tag color="green" className={style.priceTag}>{priceRu(product.price - product.oldPrice)} ₽</Tag>
                     </div>
                     <div className={style.credit}>{priceRu(product.credit)} ₽<span>/мес</span></div>
-                    <Rating rating={product.reviewAvg ? product.reviewAvg : product.initialRating} className={style.rating} />
+                    <Rating rating={product.reviewAvg ? product.reviewAvg : 0} className={style.rating} />
                     <div className={style.titleTags}>{product.categories.map(c => <Tag key={c} color="ghost">{c}</Tag>)}</div>
                     <div className={style.priceLabel}>цена</div>
                     <div className={style.creditLabel}>в кредит</div>

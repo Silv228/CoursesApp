@@ -1,31 +1,75 @@
-.review{
+.review {
     display: grid;
     grid-template-columns: [start] 30px 1fr auto [end];
-    grid-template-areas: 
-    "logo title rating"
-    "description description description"
-    "hr hr hr";
+    grid-template-areas:
+        "logo title rating"
+        "description description description"
+        "hr hr hr";
     padding: 20px 30px;
     gap: 10px;
     align-items: center;
 }
-.logo{
+
+.logo {
     grid-area: logo;
 }
-.title{
+
+.title {
     grid-area: title;
 }
-.rating{
+
+.ratingBlock {
     grid-area: rating;
 }
-.ratingBlock{
+
+.ratingBlock {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-.description{
+
+.description {
     grid-area: description;
 }
-.divider{
+
+.divider {
     grid-area: hr;
+}
+
+@media screen and (max-width: 1020px) {
+    .review {
+        display: grid;
+        grid-template-columns: [start] 30px 1fr [end];
+        grid-template-areas:
+            "logo title"
+            "rating rating"
+            "description description"
+            "hr hr";
+        padding: 20px 30px;
+        gap: 10px;
+        align-items: center;
+    }
+    .ratingBlock {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+    }
+    
+}
+@media screen and (max-width: 320px) {
+    .review {
+        grid-template-columns: [start] 1fr [end];
+        grid-template-areas:
+            "logo"
+            "title"
+            "rating"
+            "description"
+            "hr";
+    }
+    .ratingBlock {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
 }

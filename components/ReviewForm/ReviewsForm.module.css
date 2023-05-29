@@ -52,3 +52,61 @@
     padding: 11px 37px;
     margin-right: 13px;
 }
+
+@media screen and (max-width:1160px) {
+    .reviewForm {
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "name title"
+            "rate rate"
+            "description description"
+            "submit submit";
+        gap: 20px 30px;
+    }
+    .rate{
+        justify-self: start;
+    }
+    .submit{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-areas: 
+        "button ."
+        "label label";
+        gap: 5px;
+    }
+    .submitButton{
+        grid-area: button;
+    }
+    .submitLabel{
+        grid-area: label;
+    }
+}
+@media screen and (max-width: 920px) {
+    .reviewForm {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "name"
+            "title"
+            "rate"
+            "description"
+            "submit";
+        gap: 20px 30px;
+    }
+    .rate{
+        justify-self: start;
+    }
+    .submit{
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+        "button ."
+        "label label";
+        gap: 5px;
+    }
+    .submitButton{
+        grid-area: button;
+    }
+    .submitLabel{
+        grid-area: label;
+    }
+}

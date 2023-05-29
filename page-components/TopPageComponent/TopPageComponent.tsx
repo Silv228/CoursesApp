@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import cn from 'classnames'
 import style from './TopPageComponent.module.css'
 import { TopPageComponentProps } from "./TopPageComponent.props";
@@ -10,7 +10,7 @@ import AdvantList from "@/components/AdvantList/AdvantList";
 import Sort from "@/components/Sort/Sort";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { sortReducer } from "./sort.reducer";
-import Products from "@/components/Products/Products";
+import Product from "@/components/Product/Product";
 
 const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageComponentProps): JSX.Element => {
 
@@ -25,7 +25,7 @@ const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageCo
                 <Tag color="grey" size="l">{products.length}</Tag>
                 <Sort sort={sort} setSort={setSort} />
             </div>
-            {sortProducts && <Products className={style.products} products={sortProducts}/>}
+            {sortProducts && sortProducts.map(p => <Product key={p._id} product={p}/>)}
             {firstCategory === TopLevelCategory.Courses && <div className={style.categoryHeader}>
                 <Htag tag="h2">Вакансии - {page.category}</Htag>
                 <Tag size="l" color="red">hh.ru</Tag>

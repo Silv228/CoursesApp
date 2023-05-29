@@ -1,0 +1,54 @@
+.reviewForm {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    grid-template-areas:
+        "name title rate"
+        "description description description"
+        "submit submit submit";
+    gap: 20px 30px;
+}
+
+.name {
+    grid-area: name;
+}
+
+.title {
+    grid-area: title;
+}
+
+.rate {
+    grid-area: rate;
+    justify-self: end;
+
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 20px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.description {
+    grid-area: description;
+
+    min-height: 76px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;  
+}
+
+.submit {
+    grid-area: submit;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.submitButton {
+    padding: 11px 37px;
+    margin-right: 13px;
+}

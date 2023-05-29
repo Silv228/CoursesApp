@@ -1,0 +1,31 @@
+.review{
+    display: grid;
+    grid-template-columns: [start] 30px 1fr auto [end];
+    grid-template-areas: 
+    "logo title rating"
+    "description description description"
+    "hr hr hr";
+    padding: 20px 30px;
+    gap: 10px;
+    align-items: center;
+}
+.logo{
+    grid-area: logo;
+}
+.title{
+    grid-area: title;
+}
+.rating{
+    grid-area: rating;
+}
+.ratingBlock{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+.description{
+    grid-area: description;
+}
+.divider{
+    grid-area: hr;
+}

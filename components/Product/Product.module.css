@@ -1,8 +1,12 @@
+.wrapper {
+    margin-bottom: 51px;
+    margin-top: 21px;
+}
+
 .product {
     display: grid;
     grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratingstart] auto [end];
     padding: 30px;
-    margin-bottom: 10px;
 }
 
 .logo {
@@ -374,16 +378,7 @@
     .features {
         grid-area: features;
     }
-    .characteristic {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0px 0px;
-        color: var(--black);
-    }
-    .characteristic .divider{
-        order: 1;
-        margin-top: 10px;
-    }
+
     .advBlock {
         grid-area: advBlock;
     }
@@ -470,6 +465,18 @@
         grid-area: features;
     }
 
+    .characteristic {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0px 0px;
+        color: var(--black);
+    }
+
+    .characteristic .divider {
+        order: 1;
+        margin-top: 10px;
+    }
+
     .advBlock {
         grid-area: advBlock;
     }
@@ -485,4 +492,17 @@
     .buttons>button:first-child {
         margin-bottom: 5px;
     }
+}
+.review{
+    margin-top: -10px;
+}
+.closed {
+    overflow: hidden;
+    max-height: 0;
+    padding: 0;
+}
+
+.opened {
+    max-height: auto;
+    padding: 0;
 }

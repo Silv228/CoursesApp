@@ -35,12 +35,14 @@
     grid-area: description;
 
 }
-.description textarea{
+
+.description textarea {
     min-height: 76px;
     font-weight: 400;
     font-size: 16px;
-    line-height: 22px;  
+    line-height: 22px;
 }
+
 .submit {
     grid-area: submit;
 
@@ -64,24 +66,29 @@
             "submit submit";
         gap: 20px 30px;
     }
-    .rate{
+
+    .rate {
         justify-self: start;
     }
-    .submit{
+
+    .submit {
         display: grid;
         grid-template-columns: auto auto;
-        grid-template-areas: 
-        "button ."
-        "label label";
+        grid-template-areas:
+            "button ."
+            "label label";
         gap: 5px;
     }
-    .submitButton{
+
+    .submitButton {
         grid-area: button;
     }
-    .submitLabel{
+
+    .submitLabel {
         grid-area: label;
     }
 }
+
 @media screen and (max-width: 920px) {
     .reviewForm {
         grid-template-columns: 1fr;
@@ -93,33 +100,63 @@
             "submit";
         gap: 20px 30px;
     }
-    .rate{
+
+    .rate {
         justify-self: start;
     }
-    .submit{
+
+    .submit {
         display: grid;
         grid-template-columns: auto 1fr;
-        grid-template-areas: 
-        "button ."
-        "label label";
+        grid-template-areas:
+            "button ."
+            "label label";
         gap: 5px;
     }
-    .submitButton{
+
+    .submitButton {
         grid-area: button;
     }
-    .submitLabel{
+
+    .submitLabel {
         grid-area: label;
     }
 }
-.errorMessage{
+
+.errorMessage {
     color: var(--red);
     font-weight: 400;
     font-size: 15px;
-    line-height: 22px; 
+    line-height: 22px;
     position: absolute;
     left: 0px;
     top: 92%;
 }
-.formField{
+
+.formField {
     position: relative;
+}
+
+.submitField {
+    background: var(--green-light);
+    padding: 30px;
+    position: relative;
+}
+
+.submitMessage {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+}
+.close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+}
+.hide{
+    overflow: hidden;
+    max-height: 0;
+    padding: 0;
 }

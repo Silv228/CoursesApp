@@ -9,6 +9,3 @@
 .filled {
     fill: var(--primary);
 }
-.error svg{
-    stroke: var(--red);
-}

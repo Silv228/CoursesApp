@@ -1,6 +1,14 @@
-.star{
+.ratingBlock {
+    cursor: pointer;
+}
+
+.star {
     margin-right: 5px;
 }
-.filled{
+
+.filled {
     fill: var(--primary);
+}
+.error svg{
+    stroke: var(--red);
 }

@@ -1,10 +1,10 @@
-import React, { useEffect, useState, KeyboardEvent } from "react";
+import React, { useEffect, useState, KeyboardEvent, forwardRef, ForwardedRef } from "react";
 import { RatingProps } from "./Rating.props";
 import RatingStar from "./starRating.svg"
 import style from "./Rating.module.css"
 import cn from "classnames"
 
-const Rating = ({ isEditable=false, setRating, rating, className, ...props }: RatingProps) => {
+const Rating = forwardRef(({ isEditable=false, setRating, rating, className, ...props }: RatingProps, ref: ForwardedRef<HTMLDivElement>) => {
     const [currentRating, setCurrentRating] = useState<number>(rating)
     useEffect(() => {
         setCurrentRating(rating)
@@ -38,10 +38,10 @@ const Rating = ({ isEditable=false, setRating, rating, className, ...props }: Ra
         })
 
     return (
-        <div className={cn(className)} onMouseLeave={() => setCurrentRating(rating)}>
+        <div ref={ref} className={cn(className, style.ratingBlock)} onMouseLeave={() => setCurrentRating(rating)}>
             {constructRating()}
         </div>
     )
-}
+})
 
 export default Rating

@@ -15,3 +15,6 @@
     font-family: 'Noto Sans';
     color: var(--gray);
 }
+.error{
+    border: 1px solid var(--red);
+}

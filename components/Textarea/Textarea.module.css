@@ -6,6 +6,7 @@
     padding: 7px 12px;
     border: none;
     outline-color: var(--primary);
+    width: 100%;
 }
 
 .input::placeholder {
@@ -14,4 +15,8 @@
     font-size: 16px;
     line-height: 22px;
     color: var(--gray);
+}
+
+.error{
+    border: 1px solid var(--red)
 }

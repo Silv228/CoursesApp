@@ -44,16 +44,6 @@
 
     color: var(--gray-dark);
 }
-.secondLevelBlock{
-    display: none;
-}
-.secondLevelOpened
-{
-    display: block;
-}
-.secondLevelBlock:last-child {
-    margin-bottom: 20px;
-}
 
 .thirdLevel {
     display: block;

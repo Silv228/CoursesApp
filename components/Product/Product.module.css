@@ -506,3 +506,6 @@
     max-height: auto;
     padding: 0;
 }
+.ratingCount a{
+    color: var(--primary);
+}

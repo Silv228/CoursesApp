@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import cn from 'classnames'
 import style from './Product.module.css'
 import { ProductProps } from "./Product.props";
@@ -13,8 +13,18 @@ import Reviews from "../Reviews/Reviews";
 
 const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
     const [isOpenedReview, setIsOpenedReview] = useState<boolean>(false)
+    const reviewRef = useRef<HTMLDivElement>(null)
+
+    const scrollToReviews = () => {
+        setIsOpenedReview(true)
+        reviewRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        })
+    }
+    
     return (
-        <div className={style.wrapper}>
+        <div className={cn(style.wrapper, className)} {...props}>
             <Card className={cn(style.product)}>
                 <Image
                     className={style.logo}
@@ -33,7 +43,7 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
                 <div className={style.titleTags}>{product.categories.map(c => <Tag className={style.titleTag} key={c} color="ghost">{c}</Tag>)}</div>
                 <div className={style.priceLabel}>цена</div>
                 <div className={style.creditLabel}>в кредит</div>
-                <div className={style.ratingCount}>{product.reviewCount} {declination(product.reviewCount)}</div>
+                <div className={style.ratingCount}><a onClick={scrollToReviews} href="#ref">{`${product.reviewCount} ${declination(product.reviewCount)}`}</a></div>
                 <hr className={style.hr} />
                 <P className={style.description}>{product.description}</P>
                 <div className={style.features}>
@@ -64,7 +74,7 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
                     <Button onClick={() => setIsOpenedReview(!isOpenedReview)} appearance="ghost" arrow="right">Читать отзывы</Button>
                 </div>
             </Card>
-            <Reviews productId={product._id} reviews={product.reviews} className={cn(style.review, {
+            <Reviews ref={reviewRef} productId={product._id} reviews={product.reviews} className={cn(style.review, {
                 [style.opened]: isOpenedReview,
                 [style.closed]: !isOpenedReview
             })} />

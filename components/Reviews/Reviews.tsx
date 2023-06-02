@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ForwardedRef, forwardRef } from "react";
 import cn from 'classnames'
 import Card from "../Card/Card";
 import { ReviewsProps } from "./Reviews.props"
@@ -10,9 +10,9 @@ import Rating from "../Rating/Rating";
 import P from "../P/P";
 import ReviewsForm from "../ReviewForm/ReviewsForm";
 
-const Reviews = ({productId, reviews, className, ...props }: ReviewsProps): JSX.Element => {
+const Reviews = forwardRef(({productId, reviews, className, ...props }: ReviewsProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
     return (
-        <Card color="blue" className={className}>
+        <Card ref={ref} color="blue" className={className}>
             {
                 reviews.map(review => (
                      <div key={review._id} className={cn(style.review)}>
@@ -33,6 +33,6 @@ const Reviews = ({productId, reviews, className, ...props }: ReviewsProps): JSX.
             <ReviewsForm productId={productId}/>
         </Card>
     )
-}
+})
 
 export default Reviews

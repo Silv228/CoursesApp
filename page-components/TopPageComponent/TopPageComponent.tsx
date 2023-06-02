@@ -15,9 +15,14 @@ import Product from "@/components/Product/Product";
 const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageComponentProps): JSX.Element => {
 
     const [{ products: sortProducts, sort }, sortDispatch] = useReducer(sortReducer, { products, sort: SortEnum.Rating },)
+
     const setSort = (sort: SortEnum): void => {
         sortDispatch({ type: sort })
     }
+    useEffect(() => {
+        sortDispatch({type: 'reset', initialState: products})
+    }, [products])
+    
     return (
         <div className={style.wrapper}>
             <div className={style.titleBlock}>
@@ -25,7 +30,7 @@ const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageCo
                 <Tag color="grey" size="l">{products.length}</Tag>
                 <Sort sort={sort} setSort={setSort} />
             </div>
-            {sortProducts && sortProducts.map(p => <Product key={p._id} product={p}/>)}
+            {sortProducts && sortProducts.map(p => <Product key={p._id} product={p} />)}
             {firstCategory === TopLevelCategory.Courses && <div className={style.categoryHeader}>
                 <Htag tag="h2">Вакансии - {page.category}</Htag>
                 <Tag size="l" color="red">hh.ru</Tag>

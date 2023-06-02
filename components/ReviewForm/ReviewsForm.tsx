@@ -8,22 +8,34 @@ import Textarea from "../Textarea/Textarea";
 import Button from "../Button/Button";
 import { Controller, useForm } from "react-hook-form";
 import CloseIcon from "./close.svg"
+import { IFormData, IResponseReviewForm } from "./ReviewForm.interface";
+import axios from "axios";
+import { API } from "@/helpers/API";
 
-const ReviewsForm = ({ className, ...props }: ReviewsFormProps): JSX.Element => {
-    interface IFormData {
-        name: string;
-        title: string;
-        description: string;
-        rating: number;
-    }
+const ReviewsForm = ({ productId, className, ...props }: ReviewsFormProps): JSX.Element => {
+
+    const [isDisplaySubmitField, setIsDisplaySubmitField] = useState<boolean>(false)
+    const [error, setError] = useState<string | undefined>()
+
     const { register, handleSubmit, formState: { errors }, control } = useForm<IFormData>({ mode: 'onSubmit' })
-    const onSubmit = (data: IFormData): void => {
-        console.log(data)
+    const onSubmit = async (FormData: IFormData) => {
+        try {
+            const { data } = await axios.post<IResponseReviewForm>(API.reviewForm.createDemo, {...FormData, productId})
+            if (data.message) {
+                setIsDisplaySubmitField(true)
+            }
+            else{
+                setError('ЧТО-ТО пошло не так')
+            }
+        } catch (e) {
+            setError('Что-то пошло не так')
+        }
+
     }
-    const [isDisplaySubmitField, setIsDisplaySubmitField] = useState<boolean>(true)
+    
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} className={cn(className, style.reviewForm)}>
+            <form onSubmit={handleSubmit(onSubmit)} className={cn(className, style.reviewForm)} {...props}>
                 <div className={cn(style.name, style.formField)}>
                     <Input error={errors.name} {...register('name', {
                         required: {
@@ -70,12 +82,14 @@ const ReviewsForm = ({ className, ...props }: ReviewsFormProps): JSX.Element => 
                     <span className={style.submitLabel}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
                 </div>
             </form>
-            <div className={cn(style.submitField, {
-                [style.hide]: !isDisplaySubmitField
-            })}>
-            <span className={style.submitMessage}>Ваш отзыв отправлен, и будет опубликован после проверки</span>
-            <CloseIcon onClick={() => setIsDisplaySubmitField(false)} className={cn(style.close)} />
-        </div >
+            {isDisplaySubmitField && <div className={cn(style.submitField, style.panel)}>
+                <span className={style.submitMessage}>Ваш отзыв отправлен, и будет опубликован после проверки</span>
+                <CloseIcon onClick={() => setIsDisplaySubmitField(false)} className={cn(style.close)} />
+            </div >}
+            {error && <div className={cn(style.error, style.panel )}>
+                <span className={style.errorFormMessage}>{error}</span> 
+                <CloseIcon onClick={() => setError(undefined)} className={cn(style.close)} />
+            </div >}
         </>
     )
 

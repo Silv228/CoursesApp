@@ -64,7 +64,7 @@ const Product = ({ product, className, ...props }: ProductProps): JSX.Element =>
                     <Button onClick={() => setIsOpenedReview(!isOpenedReview)} appearance="ghost" arrow="right">Читать отзывы</Button>
                 </div>
             </Card>
-            <Reviews reviews={product.reviews} className={cn(style.review, {
+            <Reviews productId={product._id} reviews={product.reviews} className={cn(style.review, {
                 [style.opened]: isOpenedReview,
                 [style.closed]: !isOpenedReview
             })} />

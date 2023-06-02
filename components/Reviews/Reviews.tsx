@@ -10,7 +10,7 @@ import Rating from "../Rating/Rating";
 import P from "../P/P";
 import ReviewsForm from "../ReviewForm/ReviewsForm";
 
-const Reviews = ({ reviews, className, ...props }: ReviewsProps): JSX.Element => {
+const Reviews = ({productId, reviews, className, ...props }: ReviewsProps): JSX.Element => {
     return (
         <Card color="blue" className={className}>
             {
@@ -30,7 +30,7 @@ const Reviews = ({ reviews, className, ...props }: ReviewsProps): JSX.Element =>
                     </div>
                 ))
             }
-            <ReviewsForm/>
+            <ReviewsForm productId={productId}/>
         </Card>
     )
 }

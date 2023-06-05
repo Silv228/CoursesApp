@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import cn from 'classnames'
 import style from './Up.module.css'
 import UpIcon from "./upArrow.svg"
-import { UpProps } from "./Up.props";
+import { motion, useAnimationControls } from "framer-motion";
+import { useScrollY } from "@/hooks/useScrollY";
 
-const Up = ({className, ...props }: UpProps): JSX.Element => {
+const Up = (): JSX.Element => {
+
+    const controls = useAnimationControls()
+    const y = useScrollY()
+    useEffect(() => {
+        controls.start({
+            opacity: y / document.body.scrollHeight
+        })
+    }, [y])
+
+    const scrollToTop = () => {
+        scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+
     return (
-        <button className={cn(className, style.up)} {...props}>
+        <motion.button
+            animate={controls}
+            initial={{ opacity: 0 }}
+            onClick={scrollToTop}
+            className={cn(style.up)}
+        >
             <UpIcon />
-        </button>
+        </motion.button>
     )
 }
 

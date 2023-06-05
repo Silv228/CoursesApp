@@ -11,11 +11,11 @@ import Sort from "@/components/Sort/Sort";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { sortReducer } from "./sort.reducer";
 import Product from "@/components/Product/Product";
+import { useScrollY } from "@/hooks/useScrollY";
 
 const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageComponentProps): JSX.Element => {
 
     const [{ products: sortProducts, sort }, sortDispatch] = useReducer(sortReducer, { products, sort: SortEnum.Rating },)
-
     const setSort = (sort: SortEnum): void => {
         sortDispatch({ type: sort })
     }
@@ -23,7 +23,6 @@ const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageCo
         sortDispatch({ type: 'reset', initialState: products })
         setSort(SortEnum.Rating)
     }, [products])
-
     return (
         <div className={style.wrapper} {...props}>
             <div className={style.titleBlock}>

@@ -10,19 +10,20 @@ import { Controller, useForm } from "react-hook-form";
 import CloseIcon from "./close.svg"
 import { IFormData, IResponseReviewForm } from "./ReviewForm.interface";
 import axios from "axios";
-import { API } from "@/helpers/API";
+import {APIobj} from "../../helpers/api";
 
 const ReviewsForm = ({ productId, className, ...props }: ReviewsFormProps): JSX.Element => {
 
     const [isDisplaySubmitField, setIsDisplaySubmitField] = useState<boolean>(false)
     const [error, setError] = useState<string | undefined>()
 
-    const { register, handleSubmit, formState: { errors }, control } = useForm<IFormData>({ mode: 'onSubmit' })
+    const { register, handleSubmit, formState: { errors }, control, reset } = useForm<IFormData>({ mode: 'onSubmit' })
     const onSubmit = async (FormData: IFormData) => {
         try {
-            const { data } = await axios.post<IResponseReviewForm>(API.reviewForm.createDemo, {...FormData, productId})
+            const { data } = await axios.post<IResponseReviewForm>(APIobj.reviewForm.createDemo, {...FormData, productId})
             if (data.message) {
                 setIsDisplaySubmitField(true)
+                reset()
             }
             else{
                 setError('ЧТО-ТО пошло не так')

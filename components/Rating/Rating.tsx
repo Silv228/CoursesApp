@@ -38,7 +38,9 @@ const Rating = forwardRef(({ isEditable=false, setRating, rating, className, ...
         })
 
     return (
-        <div ref={ref} className={cn(className, style.ratingBlock)} onMouseLeave={() => setCurrentRating(rating)}>
+        <div ref={ref} className={cn(className, style.ratingBlock, {
+            [style.ratingBlockActive]: isEditable
+        })} onMouseLeave={() => setCurrentRating(rating)}>
             {constructRating()}
         </div>
     )

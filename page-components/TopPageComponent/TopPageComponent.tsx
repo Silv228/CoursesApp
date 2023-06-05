@@ -21,10 +21,11 @@ const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageCo
     }
     useEffect(() => {
         sortDispatch({ type: 'reset', initialState: products })
+        setSort(SortEnum.Rating)
     }, [products])
 
     return (
-        <div className={style.wrapper}>
+        <div className={style.wrapper} {...props}>
             <div className={style.titleBlock}>
                 <Htag tag="h1">{page.title}</Htag>
                 <Tag color="grey" size="l">{products.length}</Tag>

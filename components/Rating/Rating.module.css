@@ -1,7 +1,6 @@
-.ratingBlock {
+.ratingBlockActive{
     cursor: pointer;
 }
-
 .star {
     margin-right: 5px;
 }

@@ -6,6 +6,7 @@
         "description description description"
         "hr hr hr";
     padding: 20px 30px;
+    padding-bottom: 0px;
     gap: 10px;
     align-items: center;
 }
@@ -34,8 +35,13 @@
 
 .divider {
     grid-area: hr;
+    margin-top: 10px;
 }
-
+.divider hr{
+    background: var(--gray-light);
+    height: 1px;
+    border: none;
+}
 @media screen and (max-width: 1020px) {
     .review {
         display: grid;
@@ -45,7 +51,6 @@
             "rating rating"
             "description description"
             "hr hr";
-        padding: 20px 30px;
         gap: 10px;
         align-items: center;
     }

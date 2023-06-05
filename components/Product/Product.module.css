@@ -1,6 +1,6 @@
 .wrapper {
     margin-bottom: 51px;
-    margin-top: 21px;
+    margin-top: 29px;
 }
 
 .product {
@@ -493,19 +493,7 @@
         margin-bottom: 5px;
     }
 }
-.review{
-    margin-top: -10px;
-}
-.closed {
-    overflow: hidden;
-    max-height: 0;
-    padding: 0;
-}
 
-.opened {
-    max-height: auto;
-    padding: 0;
-}
-.ratingCount a{
+.ratingCount a {
     color: var(--primary);
 }

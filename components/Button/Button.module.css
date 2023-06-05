@@ -32,7 +32,9 @@
 }
 .arrowDown{
     transform: rotate(90deg);
+    transition: all 0.2s;
 }
 .arrowRight{
     transform: rotate(0deg);
+    transition: all 0.2s;
 }

@@ -43,7 +43,7 @@ export interface Review {
     description: string
     rating: number
     productId: string
-    createdAt: string
+    createdAt?: string
     updatedAt: string
-    __v: number
+    __v?: number
 }

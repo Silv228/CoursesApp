@@ -8,7 +8,7 @@ import P from "../P/P";
 
 const AdvantList = ({ advantages, ...props }: AdvantListProps): JSX.Element => {
     return (
-        <div className={style.wrapper}>
+        <div className={style.wrapper} {...props}>
             <Htag tag="h2">Преимущества</Htag>
             {advantages.map((advant) => {
                 return (

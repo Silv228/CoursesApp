@@ -11,7 +11,7 @@ const Up = (): JSX.Element => {
     const y = useScrollY()
     useEffect(() => {
         controls.start({
-            opacity: y / document.body.scrollHeight
+            opacity: y * 1.5 / document.body.scrollHeight
         })
     }, [y])
 
@@ -28,7 +28,7 @@ const Up = (): JSX.Element => {
             initial={{ opacity: 0 }}
             className={cn(style.up)}
         >
-            <ButtonIcon onClick={scrollToTop} appearance="white" icon="up"/>
+            <ButtonIcon onClick={scrollToTop} appearance="primary" icon="up" />
         </motion.div>
     )
 }

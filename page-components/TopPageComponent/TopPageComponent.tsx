@@ -11,7 +11,6 @@ import Sort from "@/components/Sort/Sort";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { sortReducer } from "./sort.reducer";
 import Product from "@/components/Product/Product";
-import { useScrollY } from "@/hooks/useScrollY";
 
 const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageComponentProps): JSX.Element => {
 

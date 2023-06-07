@@ -1,0 +1,25 @@
+.sidebar {
+    position: fixed;
+    background: var(--back-col);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    margin: 20px 20px 0px 20px;
+    gap: 0px 10px;
+}
+
+.close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 11;
+}

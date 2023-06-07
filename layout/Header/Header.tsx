@@ -15,13 +15,16 @@ const Header = ({ ...props }: HeaderProps) => {
     },[router])
     const variants = {
         hidden: {
-            display: "none"
+            display: "none",
+            left: "100%"
         },
         visible: {
             display: "block",
+            left: 0,
+            right: 0,
             transition: {
                 type: "spring",
-                stiffness: 200
+                stiffness: 50
             }
         }
     }
@@ -38,7 +41,7 @@ const Header = ({ ...props }: HeaderProps) => {
                 className={style.sidebar}
             >
                 <Sidebar />
-                {isOpened && <ButtonIcon className={style.close} appearance="white" icon="close" onClick={() => setIsOpened(false)} />}
+                <ButtonIcon className={style.close} appearance="white" icon="close" onClick={() => setIsOpened(false)} />
             </motion.div>
         </header>
     )

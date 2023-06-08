@@ -7,7 +7,7 @@ const Card = forwardRef(({ color = 'white', children, className, ...props }: Car
     return (
         <div ref={ref} className={cn(className, style.card, {
             [style.blueCard]: color === "blue"
-        })}>
+        })} {...props}>
             {children}
         </div>
     )

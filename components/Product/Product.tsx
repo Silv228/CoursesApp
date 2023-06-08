@@ -1,4 +1,4 @@
-import React, { ForwardedRef, forwardRef, useRef, useState } from "react";
+import React, { ForwardedRef, forwardRef, useRef, useState, KeyboardEvent } from "react";
 import cn from 'classnames'
 import style from './Product.module.css'
 import { ProductProps } from "./Product.props";
@@ -22,6 +22,14 @@ const Product = motion(forwardRef(({ product, className, ...props }: ProductProp
         reviewRef.current?.scrollIntoView(true)
 
     }
+    const handleKeyDown = (e: KeyboardEvent) => {
+        console.log(reviewRef.current)
+        if (e.code === "Enter" || e.code === "Space"){
+            e.preventDefault()
+            scrollToReviews()
+            reviewRef.current?.focus()
+        }
+    } 
     const variants = {
         visible: {
             height: 'auto',
@@ -63,7 +71,7 @@ const Product = motion(forwardRef(({ product, className, ...props }: ProductProp
                 <div className={style.titleTags}>{product.categories.map(c => <Tag className={style.titleTag} key={c} color="ghost">{c}</Tag>)}</div>
                 <div className={style.priceLabel}>цена</div>
                 <div className={style.creditLabel}>в кредит</div>
-                <div className={style.ratingCount}><a onClick={scrollToReviews} href="#ref">{`${product.reviewCount} ${declination(product.reviewCount)}`}</a></div>
+                <div className={style.ratingCount}><a tabIndex={0} onKeyDown={handleKeyDown} onClick={scrollToReviews} href="#ref">{`${product.reviewCount} ${declination(product.reviewCount)}`}</a></div>
                 <hr className={style.hr} />
                 <P className={style.description}>{product.description}</P>
                 <div className={style.features}>
@@ -95,7 +103,7 @@ const Product = motion(forwardRef(({ product, className, ...props }: ProductProp
                 </div>
             </Card>
 
-            <Card ref={reviewRef} color="blue" className={cn(style.review)}>
+            <Card tabIndex={isOpenedReview ? 0 : -1} ref={reviewRef} color="blue" className={cn(style.review)}>
                 <motion.div
                     variants={variants}
                     initial={isOpenedReview ? 'visible' : 'hidden'}

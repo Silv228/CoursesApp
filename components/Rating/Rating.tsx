@@ -52,7 +52,7 @@ const Rating = forwardRef(({ isEditable = false, setRating, rating, tabIndex, cl
                     key={i}
                     ref={r => ratingArrayRef.current.push(r)}
                     onClick={() => isEditable && changeRatingClick(i + 1)}
-                    tabIndex={isEditable ? 0 : -1}
+                    tabIndex={ isEditable ? tabIndex ?? 0 : -1}
                     onKeyDown={(e: KeyboardEvent) => changeRatingKey(e, i + 1)}
                     className={style.starWraper}
                 >

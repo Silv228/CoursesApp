@@ -104,7 +104,7 @@ const Product = motion(forwardRef(({ product, className, ...props }: ProductProp
                     {product.reviews.map(r => (
                         <Review key={r._id} {...r} productId={r._id} />
                     ))}
-                    <ReviewsForm productId={product._id} />
+                    <ReviewsForm isOpened={isOpenedReview} productId={product._id} />
                 </motion.div>
             </Card>
 

@@ -10,22 +10,24 @@ import { Controller, useForm } from "react-hook-form";
 import CloseIcon from "./close.svg"
 import { IFormData, IResponseReviewForm } from "./ReviewForm.interface";
 import axios from "axios";
-import {APIobj} from "../../helpers/api";
+import { APIobj } from "../../helpers/api";
 
-const ReviewsForm = ({ productId, className, ...props }: ReviewsFormProps): JSX.Element => {
+const ReviewsForm = ({ productId, isOpened, className, ...props }: ReviewsFormProps): JSX.Element => {
 
     const [isDisplaySubmitField, setIsDisplaySubmitField] = useState<boolean>(false)
     const [error, setError] = useState<string | undefined>()
 
     const { register, handleSubmit, formState: { errors }, control, reset } = useForm<IFormData>({ mode: 'onSubmit' })
+    
     const onSubmit = async (FormData: IFormData) => {
+        console.log(FormData)
         try {
-            const { data } = await axios.post<IResponseReviewForm>(APIobj.reviewForm.createDemo, {...FormData, productId})
+            const { data } = await axios.post<IResponseReviewForm>(APIobj.reviewForm.createDemo, { ...FormData, productId })
             if (data.message) {
                 setIsDisplaySubmitField(true)
                 reset()
             }
-            else{
+            else {
                 setError('ЧТО-ТО пошло не так')
             }
         } catch (e) {
@@ -33,7 +35,6 @@ const ReviewsForm = ({ productId, className, ...props }: ReviewsFormProps): JSX.
         }
 
     }
-    
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)} className={cn(className, style.reviewForm)} {...props}>
@@ -43,7 +44,7 @@ const ReviewsForm = ({ productId, className, ...props }: ReviewsFormProps): JSX.
                             value: true,
                             message: 'Введите имя'
                         }
-                    })} placeholder="Имя" />
+                    })} placeholder="Имя" tabIndex={isOpened ? 0 : -1} />
                     <span className={style.errorMessage}>{errors.name && errors.name.message}</span>
                 </div>
                 <div className={cn(style.title, style.formField)}>
@@ -52,12 +53,12 @@ const ReviewsForm = ({ productId, className, ...props }: ReviewsFormProps): JSX.
                             value: true,
                             message: 'Введите заголовок отзыва'
                         }
-                    })} placeholder="Загаловок отзыва" />
+                    })} placeholder="Загаловок отзыва" tabIndex={isOpened ? 0 : -1} />
                     <span className={style.errorMessage}>{errors.title && errors.title.message}</span>
                 </div>
                 <div className={cn(style.rate, style.formField)}>Оценка:
                     < Controller
-                        render={({ field }) => <Rating {...field} isEditable={true} rating={field.value} ref={field.ref} setRating={field.onChange} />}
+                        render={({ field }) => <Rating tabIndex={isOpened ? 0 : -1} {...field} isEditable={true} rating={field.value} ref={field.ref} setRating={field.onChange} />}
                         name="rating"
                         control={control}
                         rules={{
@@ -75,11 +76,11 @@ const ReviewsForm = ({ productId, className, ...props }: ReviewsFormProps): JSX.
                             value: true,
                             message: 'Введите текст отзыва'
                         }
-                    })} placeholder="Текст отзыва" />
+                    })} placeholder="Текст отзыва" tabIndex={isOpened ? 0 : -1} />
                     <span className={style.errorMessage}>{errors.description && errors.description.message}</span>
                 </div>
                 <div className={style.submit}>
-                    <Button className={style.submitButton}>Отправить</Button>
+                    <Button className={style.submitButton} tabIndex={isOpened ? 0 : -1}>Отправить</Button>  
                     <span className={style.submitLabel}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
                 </div>
             </form>
@@ -87,8 +88,8 @@ const ReviewsForm = ({ productId, className, ...props }: ReviewsFormProps): JSX.
                 <span className={style.submitMessage}>Ваш отзыв отправлен, и будет опубликован после проверки</span>
                 <CloseIcon onClick={() => setIsDisplaySubmitField(false)} className={cn(style.close)} />
             </div >}
-            {error && <div className={cn(style.error, style.panel )}>
-                <span className={style.errorFormMessage}>{error}</span> 
+            {error && <div className={cn(style.error, style.panel)}>
+                <span className={style.errorFormMessage}>{error}</span>
                 <CloseIcon onClick={() => setError(undefined)} className={cn(style.close)} />
             </div >}
         </>

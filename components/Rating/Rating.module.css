@@ -1,10 +1,11 @@
 .ratingBlockActive{
     cursor: pointer;
 }
-.star {
-    margin-right: 5px;
-}
 
 .filled {
     fill: var(--primary);
+}
+.starWraper{
+    display: inline-block;
+    margin-right: 5px;
 }

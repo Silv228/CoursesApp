@@ -16,17 +16,17 @@ a{
   color: var(--black);  
 }
 :root{
-  --primary: #7653FC;
+  --primary: #6d4de8;
   --primary-hover: #5832ee;
   --black: #3B434E;
   --white: white;
   --green-light: #C8F8E4;
-  --green: #1DC47E;
+  --green: #004a2b;
   --red: #FC836D;
   --red-light: #faa697;
   --back-col: #ececec;
   --gray-light: #EBEBEB;
-  --gray-dark: #787D85;
+  --gray-dark: #666a71;
   --gray: #A4A4A4;
   --font-family: 'Noto Sans', Times, serif;
 }

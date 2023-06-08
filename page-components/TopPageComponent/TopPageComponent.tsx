@@ -22,6 +22,7 @@ const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageCo
         sortDispatch({ type: 'reset', initialState: products })
         setSort(SortEnum.Rating)
     }, [products])
+    
     return (
         <div className={style.wrapper} {...props}>
             <div className={style.titleBlock}>

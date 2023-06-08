@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, KeyboardEvent, useRef, useState } from "react";
 import { LayoutProps } from "./Layout.props";
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
@@ -6,13 +6,34 @@ import Footer from "./Footer/Footer";
 import style from "./Layout.module.css"
 import { AppContextProvider, IAppContext } from "@/context/AppContext";
 import Up from "@/components/Up/Up";
+import cn from "classnames";
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
+    const [isVisible, setIsVisible] = useState(false)
+    const bodyRef = useRef<HTMLDivElement>(null)
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.code === "Space" || e.code === "Enter") {
+            e.preventDefault()
+            bodyRef.current?.focus()
+            setIsVisible(false)
+        }
+        setIsVisible(false)
+    }
     return (
         <div className={style.wrapper}>
             <Header className={style.header} />
+            <a
+                tabIndex={1}
+                onFocus={() => setIsVisible(true)}
+                onKeyDown={(e: KeyboardEvent) => handleKeyDown(e)}
+                className={cn(style.skipLink, { [style.visible]: isVisible })}
+                href="#skipLink"
+            >
+                Перейти к содержанию
+            </a>
             <Sidebar className={style.sidebar} />
-            <div className={style.body}>
+            <div tabIndex={0} ref={bodyRef} className={style.body}>
                 {children}
             </div>
             <Footer className={style.footer} />

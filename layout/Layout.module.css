@@ -18,6 +18,7 @@
 }
 .body{
     grid-area: body;
+    outline: none;
 }
 .footer{
     grid-area: footer;
@@ -42,4 +43,21 @@
         grid-template-columns: 1fr;
         gap: 10px 30px;
     }
+}
+.skipLink{
+    background: var(--primary);
+    color: var(--white);
+    padding: 2px 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    opacity: 0;
+    height: 0px;
+    z-index: -1;
+}
+.skipLink.visible {
+    opacity: 1;
+    height: auto;
+    z-index: 1;
 }

@@ -71,7 +71,7 @@ const ReviewsForm = ({ productId, isOpened, className, ...props }: ReviewsFormPr
                     <span className={style.errorMessage}>{errors.rating && errors.rating.message}</span>
                 </div>
                 <div className={cn(style.description, style.formField)}>
-                    <Textarea error={errors.name} {...register('description', {
+                    <Textarea aria-label="текст отзыва" error={errors.name} {...register('description', {
                         required: {
                             value: true,
                             message: 'Введите текст отзыва'

@@ -122,8 +122,8 @@ export const Menu = (): JSX.Element => {
         )
     }
     return (
-        <div className={style.menu}>
+        <nav role="navigation" className={style.menu}>
             {BuildFirstLevel()}
-        </div>
+        </nav>
     )
 }

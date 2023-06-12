@@ -63,14 +63,14 @@ const Product = motion(forwardRef(({ product, className, ...props }: ProductProp
                 />
                 <div className={style.title}>{product.title}</div>
                 <div className={style.price}>
-                    {priceRu(product.price)} ₽
-                    <Tag color="green" className={style.priceTag}>{priceRu(product.price - product.oldPrice)} ₽</Tag>
+                    <span aria-label={`цена ${priceRu(product.price)} рублей`}>{priceRu(product.price)}₽</span>
+                    <Tag aria-label={`скидка ${priceRu(product.price - product.oldPrice)} рублей`} color="green" className={style.priceTag}>{priceRu(product.price - product.oldPrice)} ₽</Tag>
                 </div>
-                <div className={style.credit}>{priceRu(product.credit)} ₽<span>/мес</span></div>
-                <Rating rating={product.reviewAvg ? product.reviewAvg : 0} className={style.rating} />
+                <div aria-label={product.credit ? `кредит ${priceRu(product.credit)} рублей в месяц`: ''} className={style.credit}>{priceRu(product.credit)} ₽<span>/мес</span></div>
+                <Rating aria-label={`Рейтинг курса ${product.reviewAvg ? product.reviewAvg : 0}`} rating={product.reviewAvg ? product.reviewAvg : 0} className={style.rating} />
                 <div className={style.titleTags}>{product.categories.map(c => <Tag className={style.titleTag} key={c} color="ghost">{c}</Tag>)}</div>
-                <div className={style.priceLabel}>цена</div>
-                <div className={style.creditLabel}>в кредит</div>
+                <div className={style.priceLabel} aria-hidden={true}>цена</div>
+                <div className={style.creditLabel} aria-hidden={true}>в кредит</div>
                 <div className={style.ratingCount}><a tabIndex={0} onKeyDown={handleKeyDown} onClick={scrollToReviews} href="#ref">{`${product.reviewCount} ${declination(product.reviewCount)}`}</a></div>
                 <hr className={style.hr} />
                 <P className={style.description}>{product.description}</P>

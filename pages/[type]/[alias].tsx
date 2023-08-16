@@ -1,6 +1,6 @@
 import React from "react"
 import { withLayout } from "@/layout/Layout"
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next"
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext, Metadata } from "next"
 import axios from "axios"
 import { MenuItem } from "@/interfaces/menu.interface"
 import { PageModel, TopLevelCategory } from "@/interfaces/page.interface"
@@ -9,9 +9,20 @@ import { ProductItem } from "@/interfaces/product.interface"
 import { firstLevelMenu } from "@/helpers/helpers"
 import TopPageComponent from "@/page-components/TopPageComponent/TopPageComponent"
 import { APIobj } from "../../helpers/api"
+import Head from "next/head"
+function TopPage({ page, products, firstCategory }: TopPageProps): JSX.Element {
+    return (
+        <>
+            <Head>
+                <title>{page.metaTitle}</title>
+                <meta name="description" content={page.metaDescription} />
+                <meta property="og:title" content={page.metaTitle} />
+                <meta property="og:description" content={page.metaDescription} />
+            </Head>
+            <TopPageComponent page={page} products={products} firstCategory={firstCategory} />
+        </>
 
-function TopPage({ menu, page, products, firstCategory }: TopPageProps): JSX.Element {
-    return <TopPageComponent page = {page} products = {products} firstCategory = {firstCategory} />
+    )
 }
 
 export default withLayout(TopPage)
@@ -41,7 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsC
         }
     }
     const { data: menu } = await axios.post<MenuItem[]>(APIobj.topPage.find, { firstCategory: firstCategory.id })
-    try{
+    try {
         const { data: page } = await axios.get<PageModel>(APIobj.topPage.byAlias + params.alias)
         const { data: products } = await axios.post<ProductItem[]>(APIobj.product.find,
             {
@@ -59,7 +70,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsC
             }
         })
     }
-    catch{
+    catch {
         return {
             notFound: true
         }

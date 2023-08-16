@@ -9,7 +9,7 @@ import { firstLevelMenu } from "@/helpers/helpers"
 import { AppContext } from "@/context/AppContext"
 import { APIobj } from "../../helpers/api"
 
-function Type({menu, firstCategory}: TypeProps): JSX.Element {
+function Type({ menu, firstCategory }: TypeProps): JSX.Element {
     const { setMenu } = useContext(AppContext)
     setMenu && setMenu(menu)
     return (
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsC
             notFound: true
         }
     }
-    const { data: menu } = await axios.post<MenuItem[]>(APIobj.topPage.find,   { firstCategory: firstCategory.id })
+    const { data: menu } = await axios.post<MenuItem[]>(APIobj.topPage.find, { firstCategory: firstCategory.id })
 
     return ({
         props: {

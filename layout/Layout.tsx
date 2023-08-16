@@ -7,7 +7,12 @@ import style from "./Layout.module.css"
 import { AppContextProvider, IAppContext } from "@/context/AppContext";
 import Up from "@/components/Up/Up";
 import cn from "classnames";
+import {Open_Sans} from 'next/font/google'
 
+const inter = Open_Sans({
+    subsets: ['latin'],
+    display: 'swap'
+})
 const Layout = ({ children }: LayoutProps): JSX.Element => {
     const [isVisible, setIsVisible] = useState(false)
     const bodyRef = useRef<HTMLDivElement>(null)
@@ -21,7 +26,7 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
         setIsVisible(false)
     }
     return (
-        <div className={style.wrapper}>
+        <div className={cn(style.wrapper, inter.className)}>
             <Header className={style.header} />
             <a
                 tabIndex={1}

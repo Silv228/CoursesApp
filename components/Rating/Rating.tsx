@@ -4,7 +4,7 @@ import RatingStar from "./starRating.svg"
 import style from "./Rating.module.css"
 import cn from "classnames"
 
-const Rating = forwardRef(({ isEditable = false, setRating, rating, tabIndex, className, ...props }: RatingProps, ref: ForwardedRef<HTMLDivElement>) => {
+export const Rating = forwardRef(({ isEditable = false, setRating, rating, tabIndex, className, ...props }: RatingProps, ref: ForwardedRef<HTMLDivElement>) => {
     const [currentRating, setCurrentRating] = useState<number>(rating)
     const ratingArrayRef = useRef<(HTMLSpanElement | null)[]>([])
     useEffect(() => {
@@ -73,4 +73,4 @@ const Rating = forwardRef(({ isEditable = false, setRating, rating, tabIndex, cl
     )
 })
 
-export default Rating
+Rating.displayName = 'Rating'

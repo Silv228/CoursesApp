@@ -1,14 +1,14 @@
-import React, { ForwardedRef, forwardRef } from "react";
+import React from "react";
 import cn from 'classnames'
 import { ReviewProps } from "./Review.props"
 import style from "./Review.module.css"
 import UserIcon from "./user.svg"
 import { format } from "date-fns";
 import { ru } from "date-fns/locale"
-import Rating from "../Rating/Rating";
+import { Rating } from "../Rating/Rating";
 import P from "../P/P";
 
-const Review = ({_id, name, updatedAt, rating, description, title }: ReviewProps): JSX.Element => {
+const Review = ({ _id, name, updatedAt, rating, description, title }: ReviewProps): JSX.Element => {
     return (
         <div
             key={_id}

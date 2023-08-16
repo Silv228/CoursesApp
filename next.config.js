@@ -1,31 +1,34 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  largePageDataBytes: 128 * 1000000
+	reactStrictMode: true,
+	largePageDataBytes: 128 * 1000000
 }
 
 module.exports = nextConfig
 
 module.exports = {
-	images:{
+	images: {
 		domains: ['courses-top.ru']
+	},
+	rules: {
+		"react/display-name": "off",
 	},
 	webpack(config, options) {
 		config.module.rules.push({
 			loader: '@svgr/webpack',
-      issuer: /\.[jt]sx?$/,
+			issuer: /\.[jt]sx?$/,
 			options: {
 				prettier: false,
 				svgo: true,
 				svgoConfig: {
 					plugins: [{
-            name: 'preset-default',
-            params: {
-              override: {
-                 removeViewBox: false 
-              }
-            }
-          }],
+						name: 'preset-default',
+						params: {
+							override: {
+								removeViewBox: false
+							}
+						}
+					}],
 				},
 				titleProp: true,
 			},

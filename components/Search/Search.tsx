@@ -2,7 +2,7 @@ import React, { KeyboardEvent, useState } from "react";
 import cn from 'classnames'
 import style from './Search.module.css'
 import { SearchProps } from "./Search.props";
-import Input from "../Input/Input";
+import { Input } from "../Input/Input";
 import Button from "../Button/Button";
 import GlassIcon from "./glass.svg"
 import { useRouter } from "next/router";
@@ -11,7 +11,7 @@ const Search = ({ className, ...props }: SearchProps): JSX.Element => {
     const [search, setSearch] = useState<string>('')
     const router = useRouter()
 
-    const goToSearch = (): void => {    
+    const goToSearch = (): void => {
         router.push({
             pathname: '/search',
             query: {
@@ -20,9 +20,9 @@ const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         })
     }
 
-    const handleKeyDown = (e : KeyboardEvent): void => {
-        if(e.key === 'Enter'){
-            goToSearch() 
+    const handleKeyDown = (e: KeyboardEvent): void => {
+        if (e.key === 'Enter') {
+            goToSearch()
         }
     }
     return (

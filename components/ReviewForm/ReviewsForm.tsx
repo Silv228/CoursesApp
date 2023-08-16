@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import cn from 'classnames'
 import { ReviewsFormProps } from "./ReviewsForm.props"
 import style from "./ReviewsForm.module.css"
-import Rating from "../Rating/Rating";
-import Input from "../Input/Input";
-import Textarea from "../Textarea/Textarea";
+import { Rating } from "../Rating/Rating";
+import { Input } from "../Input/Input";
+import { Textarea } from "../Textarea/Textarea";
 import Button from "../Button/Button";
 import { Controller, useForm } from "react-hook-form";
 import CloseIcon from "./close.svg"
@@ -18,7 +18,7 @@ const ReviewsForm = ({ productId, isOpened, className, ...props }: ReviewsFormPr
     const [error, setError] = useState<string | undefined>()
 
     const { register, handleSubmit, formState: { errors }, control, reset } = useForm<IFormData>({ mode: 'onSubmit' })
-    
+
     const onSubmit = async (FormData: IFormData) => {
         console.log(FormData)
         try {
@@ -80,7 +80,7 @@ const ReviewsForm = ({ productId, isOpened, className, ...props }: ReviewsFormPr
                     <span className={style.errorMessage}>{errors.description && errors.description.message}</span>
                 </div>
                 <div className={style.submit}>
-                    <Button className={style.submitButton} tabIndex={isOpened ? 0 : -1}>Отправить</Button>  
+                    <Button className={style.submitButton} tabIndex={isOpened ? 0 : -1}>Отправить</Button>
                     <span className={style.submitLabel}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
                 </div>
             </form>

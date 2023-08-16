@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer } from "react";
-import cn from 'classnames'
 import style from './TopPageComponent.module.css'
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import Htag from "@/components/Htag/Htag";
@@ -10,7 +9,7 @@ import AdvantList from "@/components/AdvantList/AdvantList";
 import Sort from "@/components/Sort/Sort";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { sortReducer } from "./sort.reducer";
-import Product from "@/components/Product/Product";
+import { Product } from "@/components/Product/Product";
 
 const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageComponentProps): JSX.Element => {
 
@@ -22,7 +21,7 @@ const TopPageComponent = ({ page, firstCategory, products, ...props }: TopPageCo
         sortDispatch({ type: 'reset', initialState: products })
         setSort(SortEnum.Rating)
     }, [products])
-    
+
     return (
         <div className={style.wrapper} {...props}>
             <div className={style.titleBlock}>

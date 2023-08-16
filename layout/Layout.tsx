@@ -5,9 +5,9 @@ import Sidebar from "./Sidebar/Sidebar";
 import Footer from "./Footer/Footer";
 import style from "./Layout.module.css"
 import { AppContextProvider, IAppContext } from "@/context/AppContext";
-import Up from "@/components/Up/Up";
+import { Up } from "@/components/Up/Up";
 import cn from "classnames";
-import {Open_Sans} from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 
 const inter = Open_Sans({
     subsets: ['latin'],

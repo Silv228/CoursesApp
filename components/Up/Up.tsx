@@ -5,7 +5,7 @@ import { motion, useAnimationControls } from "framer-motion";
 import { useScrollY } from "@/hooks/useScrollY";
 import ButtonIcon from "../ButtonIcon/ButtonIcon";
 
-const Up = (): JSX.Element => {
+export const Up = (): JSX.Element => {
 
     const controls = useAnimationControls()
     const y = useScrollY()
@@ -32,5 +32,3 @@ const Up = (): JSX.Element => {
         </motion.div>
     )
 }
-
-export default Up

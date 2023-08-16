@@ -2,8 +2,8 @@ import React, { ForwardedRef, forwardRef, useRef, useState, KeyboardEvent } from
 import cn from 'classnames'
 import style from './Product.module.css'
 import { ProductProps } from "./Product.props";
-import Card from "../Card/Card";
-import Rating from "../Rating/Rating";
+import {Card} from "../Card/Card";
+import {Rating} from "../Rating/Rating";
 import Button from "../Button/Button";
 import Tag from "../Tag/Tag";
 import { declination, priceRu } from "@/helpers/helpers";
@@ -13,7 +13,7 @@ import Review from "../Review/Review";
 import { motion } from "framer-motion";
 import ReviewsForm from "../ReviewForm/ReviewsForm";
 
-const Product = motion(forwardRef(({ product, className, ...props }: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
+export const Product = motion(forwardRef(({ product, className, ...props }: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
 
     const reviewRef = useRef<HTMLDivElement>(null)
     const [isOpenedReview, setIsOpenedReview] = useState<boolean>(false)
@@ -120,4 +120,4 @@ const Product = motion(forwardRef(({ product, className, ...props }: ProductProp
     )
 }))
 
-export default Product
+Product.displayName = 'Product'

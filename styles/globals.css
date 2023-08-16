@@ -3,6 +3,13 @@
   padding: 0;
   margin: 0;
 }
+.errorBlock{
+  display: grid;
+  height: 100%;
+  justify-items: center;
+  align-content: center;
+  gap: 25px;
+}
 
 html,
 body {

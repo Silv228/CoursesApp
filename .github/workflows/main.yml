@@ -11,6 +11,6 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         registry: docker.pkg.github.com
-        name: docker.pkg.github.com/Silv228/CoursesApp/lol-app
+        name: docker.pkg.github.com/Silv228/CoursesApp/courses-app
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}

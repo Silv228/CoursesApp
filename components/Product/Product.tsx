@@ -12,9 +12,9 @@ import Image from "next/image";
 import Review from "../Review/Review";
 import { motion } from "framer-motion";
 import ReviewsForm from "../ReviewForm/ReviewsForm";
-
+// eslint-disable-next-line react/display-name
 export const Product = motion(forwardRef(({ product, className, ...props }: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
-
+    
     const reviewRef = useRef<HTMLDivElement>(null)
     const [isOpenedReview, setIsOpenedReview] = useState<boolean>(false)
     const scrollToReviews = () => {
@@ -23,7 +23,6 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
 
     }
     const handleKeyDown = (e: KeyboardEvent) => {
-        console.log(reviewRef.current)
         if (e.code === "Enter" || e.code === "Space"){
             e.preventDefault()
             scrollToReviews()
@@ -120,4 +119,3 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
     )
 }))
 
-Product.displayName = 'Product'

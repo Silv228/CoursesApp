@@ -10,9 +10,6 @@ module.exports = {
 	images: {
 		domains: ['courses-top.ru']
 	},
-	rules: {
-		"react/display-name": "off",
-	},
 	webpack(config, options) {
 		config.module.rules.push({
 			loader: '@svgr/webpack',

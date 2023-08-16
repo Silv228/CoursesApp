@@ -13,7 +13,7 @@ export const Up = (): JSX.Element => {
         controls.start({
             opacity: y * 1.5 / document.body.scrollHeight
         })
-    }, [y])
+    }, [y, controls])
 
     const scrollToTop = () => {
         scrollTo({
